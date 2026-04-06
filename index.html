@@ -133,7 +133,30 @@
         }
       }
 
-      /* NAV */
+      @media (max-width: 900px) {
+        nav {
+          padding: 12px 16px;
+        }
+        .nav-right {
+          gap: 6px;
+          flex-shrink: 0;
+        }
+        .cart-btn span.cart-count {
+          top: -4px;
+          right: -4px;
+          width: 16px;
+          height: 16px;
+          font-size: 0.62rem;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .cart-btn .cart-text {
+          display: none;
+          margin-right: 10px;
+        }
+      }
+
       nav {
         position: fixed;
         top: 0;
@@ -199,7 +222,7 @@
       .nav-right {
         display: flex;
         align-items: center;
-        gap: 16px;
+        gap: 8px;
       }
       .cart-btn {
         position: relative;
@@ -278,7 +301,6 @@
         transform: scale(1.1);
       }
 
-      /* HERO */
       .hero {
         min-height: 100vh;
         display: flex;
@@ -468,7 +490,6 @@
         border-radius: 50%;
       }
 
-      /* SECTIONS */
       section {
         padding: 80px 48px;
       }
@@ -500,7 +521,6 @@
         animation: drawLine 1s ease forwards;
       }
 
-      /* FEATURES */
       .features-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -535,7 +555,6 @@
         line-height: 1.6;
       }
 
-      /* PRODUCTS */
       .products-section {
         background: var(--light);
       }
@@ -627,6 +646,7 @@
         display: flex;
         align-items: center;
         justify-content: center;
+        z-index: 1;
       }
       .product-card:hover .img-overlay {
         opacity: 1;
@@ -770,7 +790,6 @@
         transform: scale(0.97);
       }
 
-      /* MODAL */
       .modal-overlay {
         position: fixed;
         inset: 0;
@@ -995,7 +1014,6 @@
         border-color: var(--terracotta);
       }
 
-      /* CART DRAWER */
       .cart-overlay {
         position: fixed;
         inset: 0;
@@ -1338,7 +1356,6 @@
         line-height: 1.5;
       }
 
-      /* USER DROPDOWN */
       .user-menu {
         position: relative;
       }
@@ -1397,7 +1414,6 @@
         color: var(--terracotta);
       }
 
-      /* FOOTER */
       footer {
         background: var(--dark);
         color: rgba(255, 255, 255, 0.7);
@@ -1616,7 +1632,6 @@
     </style>
   </head>
   <body>
-    <!-- NAVBAR -->
     <nav>
       <a href="#" class="nav-logo">
         <span class="leaf-icon">
@@ -1652,13 +1667,12 @@
           </div>
         </div>
         <button class="cart-btn" onclick="openCart()">
-          🧺 Giỏ hàng
+          🧺 <span class="cart-text">Giỏ hàng</span>
           <span class="cart-count" id="cartCount">0</span>
         </button>
       </div>
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
       <div class="hero-bg"></div>
       <div class="hero-blob hero-blob-1"></div>
@@ -1711,7 +1725,6 @@
       </div>
     </section>
 
-    <!-- FEATURES -->
     <section id="features">
       <div class="section-header">
         <span class="section-label">Tại sao chọn chúng tôi</span>
@@ -1754,7 +1767,6 @@
       </div>
     </section>
 
-    <!-- PRODUCTS -->
     <section class="products-section" id="products">
       <div class="section-header">
         <span class="section-label">Thực đơn & Dịch vụ</span>
@@ -1812,9 +1824,15 @@
               target="_blank"
               title="TikTok"
             >
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="white">
+              <svg
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="white"
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
-                  d="M9 3v12.5a3.5 3.5 0 1 1-2-3.15V9.5a7 7 0 1 0 4 6.3V7.8a6.5 6.5 0 0 0 4 1.4V6.2a3.5 3.5 0 0 1-2-3.2H9z"
+                  d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 0 0-.79-.05 6.34 6.34 0 0 0-6.34 6.34 6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.33-6.34V8.95a8.16 8.16 0 0 0 4.78 1.52V7.01a4.85 4.85 0 0 1-1.01-.32z"
                 />
               </svg>
             </a>
@@ -1940,7 +1958,6 @@
       </div>
     </footer>
 
-    <!-- MODAL -->
     <div class="modal-overlay" id="modalOverlay" onclick="closeModal(event)">
       <div class="modal">
         <button class="modal-close" onclick="closeModalDirect()">✕</button>
@@ -1988,7 +2005,6 @@
       </div>
     </div>
 
-    <!-- CART -->
     <div
       class="cart-overlay"
       id="cartOverlay"
@@ -2019,7 +2035,6 @@
       </div>
     </div>
 
-    <!-- AUTH MODAL -->
     <div
       class="auth-modal-overlay"
       id="authOverlay"
@@ -2031,7 +2046,6 @@
       >
         <button class="auth-close" onclick="closeAuthModal()">✕</button>
 
-        <!-- TABS -->
         <div
           style="display: flex; border-bottom: 1px solid rgba(0, 0, 0, 0.08)"
         >
@@ -2075,10 +2089,9 @@
           </button>
         </div>
 
-        <!-- LOGIN FORM -->
         <div id="formLogin" style="padding: 32px 36px 36px">
           <div style="text-align: center; margin-bottom: 24px">
-            <div style="font-size: 2rem; margin-bottom: 6px">🌿</div>
+            <!-- <div style="font-size: 2rem; margin-bottom: 6px">🌿</div> -->
             <h2
               style="
                 font-family: &quot;Playfair Display&quot;, serif;
@@ -2224,10 +2237,9 @@
           </p>
         </div>
 
-        <!-- REGISTER FORM -->
         <div id="formRegister" style="display: none; padding: 28px 36px 36px">
           <div style="text-align: center; margin-bottom: 20px">
-            <div style="font-size: 2rem; margin-bottom: 6px">🌿</div>
+            <!-- <div style="font-size: 2rem; margin-bottom: 6px">🌿</div> -->
             <h2
               style="
                 font-family: &quot;Playfair Display&quot;, serif;
@@ -2444,7 +2456,6 @@
     </div>
 
     <script>
-      // ===== DATA =====
       const MENU = {
         accessories: {
           label: "Phụ kiện",
@@ -2552,7 +2563,7 @@
             },
             {
               id: "a6",
-              emoji: "🪵",
+              emoji: "┬─┬",
               bg: "linear-gradient(160deg,#fbe9e7,#ff8a65)",
               badge: "",
               badgeType: "",
@@ -2572,7 +2583,7 @@
             },
             {
               id: "a7",
-              emoji: "🛖",
+              emoji: "🎟️",
               bg: "linear-gradient(160deg,#e8f5e9,#81c784)",
               badge: "PHỔBIẾN",
               badgeType: "",
@@ -2834,7 +2845,7 @@
           card.className = "product-card";
           card.style.animationDelay = i * 0.08 + "s";
           card.innerHTML = `
-      <div class="product-img" style="background:${p.bg}">
+      <div class="product-img" style="background:${p.bg}; position:relative">
         <div style="position:absolute;inset:0;opacity:0.06;background-image:repeating-linear-gradient(45deg,#fff 0,#fff 1px,transparent 0,transparent 50%);background-size:18px 18px"></div>
         <span style="position:relative;z-index:1;font-size:4rem">${p.emoji}</span>
         ${p.badge ? `<div class="product-badge ${p.badgeType}">${p.badge}</div>` : ""}
@@ -3153,7 +3164,6 @@
           .join("")
           .toUpperCase()
           .slice(0, 2);
-        // Avatar chữ cái thay vì ảnh
         const avatarEl = document.getElementById("userAvatar");
         avatarEl.style.cssText =
           "display:flex;width:36px;height:36px;border-radius:50%;border:2.5px solid var(--sage);background:var(--sage);color:#fff;font-weight:700;font-size:0.8rem;align-items:center;justify-content:center;cursor:pointer";
@@ -3176,7 +3186,6 @@
         showToast("👋 Đã đăng xuất thành công");
       }
 
-      // INIT
       switchCat("accessories", document.querySelector(".cat-tab"));
 
       const observer = new IntersectionObserver(
@@ -3197,7 +3206,6 @@
         observer.observe(el);
       });
 
-      // ===== CHECKOUT =====
       function openCheckout() {
         const total = cart.reduce((s, c) => s + c.price * c.qty, 0);
         if (total === 0) {
@@ -3266,7 +3274,6 @@
       }
     </script>
 
-    <!-- CHECKOUT MODAL -->
     <div
       class="modal-overlay"
       id="checkoutOverlay"
@@ -3276,7 +3283,6 @@
       <div class="modal" style="max-width: 420px">
         <button class="modal-close" onclick="closeCheckout()">✕</button>
 
-        <!-- BƯỚC 1: Xác nhận -->
         <div id="checkoutStep1" style="padding: 36px 34px">
           <div
             style="
@@ -3346,7 +3352,6 @@
           </button>
         </div>
 
-        <!-- BƯỚC 2: Thành công -->
         <div
           id="checkoutStep2"
           style="display: none; padding: 48px 34px; text-align: center"
